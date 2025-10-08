@@ -1,4 +1,4 @@
-math.randomseed(os.time())
+math.randomseed(os.time() + vim.fn.getpid())
 
 local function get_table_function_keys(leader, cmd, line)
     return {
