@@ -9,6 +9,7 @@ require('mythic.tables.army-descriptors')
 require('mythic.tables.cavern-descriptors')
 require('mythic.tables.characters')
 require('mythic.tables.character-actions-combat')
+require('mythic.tables.character-actions-general')
 
 TBLS = {
     Actions = {
@@ -46,6 +47,10 @@ TBLS = {
     CharacterActionsCombat = {
         Character_actions_combat,
         Character_actions_combat,
+    },
+    CharacterActionsGeneral = {
+        Character_actions_general,
+        Character_actions_general,
     },
     }
 }

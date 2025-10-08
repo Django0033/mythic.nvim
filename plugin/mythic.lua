@@ -11,6 +11,7 @@ local function get_table_function_keys(leader, cmd, line)
         'CavernDescriptors',
         'Characters',
         'CharacterActionsCombat',
+        'CharacterActionsGeneral',
     }
 end
 
