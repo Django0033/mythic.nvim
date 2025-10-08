@@ -7,6 +7,7 @@ require('mythic.tables.alien-species')
 require('mythic.tables.animal-actions')
 require('mythic.tables.army-descriptors')
 require('mythic.tables.cavern-descriptors')
+require('mythic.tables.characters')
 
 TBLS = {
     Actions = {
@@ -36,6 +37,10 @@ TBLS = {
     CavernDescriptors = {
         Cavern_descriptors,
         Cavern_descriptors,
+    },
+    Characters = {
+        Character,
+        Character,
     },
     }
 }

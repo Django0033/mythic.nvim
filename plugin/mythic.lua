@@ -9,6 +9,7 @@ local function get_table_function_keys(leader, cmd, line)
         'AnimalActions',
         'ArmyDescriptors',
         'CavernDescriptors',
+        'Characters',
     }
 end
 
