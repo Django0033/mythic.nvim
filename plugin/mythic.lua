@@ -1,6 +1,6 @@
 math.randomseed(os.time())
 
-local function get_table_function_keys(leader, cmd, line)
+local function get_table_keys(leader, cmd, line)
     return {
         'Actions',
         'Descriptors',
@@ -21,6 +21,6 @@ vim.api.nvim_create_user_command(
     require('mythic').print_table_elements,
     {
         nargs = 1,
-        complete = get_table_function_keys
+        complete = get_table_keys
     }
 )
