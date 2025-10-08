@@ -7,6 +7,7 @@ local function get_table_function_keys(leader, cmd, line)
         'AdventureTone',
         'AlienEspecies',
         'AnimalActions',
+        'ArmyDescriptors',
     }
 end
 
