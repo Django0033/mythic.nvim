@@ -3,6 +3,7 @@ require('mythic.tables.action2')
 require('mythic.tables.descriptor1')
 require('mythic.tables.descriptor2')
 require('mythic.tables.adventure-tone')
+require('mythic.tables.alien-species')
 
 TBLS = {
     Actions = {
@@ -16,5 +17,10 @@ TBLS = {
     AdventureTone = {
         Adventure_tone,
         Adventure_tone,
+    },
+    AlienEspecies = {
+        Alien_especies,
+        Alien_especies,
+    },
     }
 }
