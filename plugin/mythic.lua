@@ -10,6 +10,7 @@ local function get_table_function_keys(leader, cmd, line)
         'ArmyDescriptors',
         'CavernDescriptors',
         'Characters',
+        'CharacterActionsCombat',
     }
 end
 
