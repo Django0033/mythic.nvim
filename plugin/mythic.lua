@@ -8,6 +8,7 @@ local function get_table_function_keys(leader, cmd, line)
         'AlienEspecies',
         'AnimalActions',
         'ArmyDescriptors',
+        'CavernDescriptors',
     }
 end
 

@@ -6,6 +6,7 @@ require('mythic.tables.adventure-tone')
 require('mythic.tables.alien-species')
 require('mythic.tables.animal-actions')
 require('mythic.tables.army-descriptors')
+require('mythic.tables.cavern-descriptors')
 
 TBLS = {
     Actions = {
@@ -31,6 +32,10 @@ TBLS = {
     ArmyDescriptors = {
         Army_descriptors,
         Army_descriptors,
+    },
+    CavernDescriptors = {
+        Cavern_descriptors,
+        Cavern_descriptors,
     },
     }
 }
