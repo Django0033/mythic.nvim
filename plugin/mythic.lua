@@ -13,6 +13,7 @@ local function get_table_keys(leader, cmd, line)
         'CharacterActionsCombat',
         'CharacterActionsGeneral',
         'CharacterAppearance',
+        'CharacterBackground',
     }
 end
 
