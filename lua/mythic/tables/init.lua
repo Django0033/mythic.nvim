@@ -14,6 +14,7 @@ require('mythic.tables.character-appearance')
 require('mythic.tables.character-background')
 require('mythic.tables.character-conversations')
 require('mythic.tables.character-descriptors')
+require('mythic.tables.character-identity')
 
 TBLS = {
     Actions = {
@@ -71,5 +72,9 @@ TBLS = {
     CharacterDescriptors = {
         Character_descriptors,
         Character_descriptors,
+    },
+    CharacterIdentity = {
+        Character_identity,
+        Character_identity,
     },
 }
