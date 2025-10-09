@@ -16,6 +16,7 @@ require('mythic.tables.character-conversations')
 require('mythic.tables.character-descriptors')
 require('mythic.tables.character-identity')
 require('mythic.tables.character-motivations')
+require('mythic.tables.character-personality')
 
 TBLS = {
     Actions = {
@@ -81,5 +82,9 @@ TBLS = {
     CharacterMotivations = {
         Character_motivations,
         Character_motivations,
+    },
+    CharacterPersonality = {
+        Character_personality,
+        Character_personality,
     },
 }

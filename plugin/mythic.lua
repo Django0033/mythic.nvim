@@ -18,6 +18,7 @@ local function get_table_keys(leader, cmd, line)
         'CharacterDescriptors',
         'CharacterIdentity',
         'CharacterMotivations',
+        'CharacterPersonality',
     }
 end
 
