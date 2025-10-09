@@ -3,12 +3,15 @@ A small plugin to use Mythic GME 2 inside Neovim.
 
 ## Commands
 - `MythicTables <table_name>`: Prints 2 elements from an specific table.
+
 - `MythicChaos`: Prints the current Chaos Factor. You can use the `+` argument
 to add 1 to the Chaos Factor or `-` to subtract 1. You can also pass a number as
 an argument to set the Chaos Factor to that number.
+
 - `MythicFateCheck`: Add the `?` argument to check the available odds arguments.
 Prints a dice roll result adding the Chaos Factor modifier and a yes/no (or
 exceptional yes/no) result. It also checks if there is a Random Event.
+
 - `MythicSceneTest`: Rolls 1D10 and compares the result to current Chaos 
 Factor to check if the scene will be as expected, altered or interrupted.
 
