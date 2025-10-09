@@ -1,5 +1,19 @@
 math.randomseed(os.time() + vim.fn.getpid())
 
+local function get_odds_completion()
+    return {
+        'Impossible',
+        'Nearly Impossible',
+        'Very Unlikely',
+        'Unlikely',
+        '50/50',
+        'Likely',
+        'Very Likely',
+        'Nearly Certain',
+        'Certain'
+    }
+end
+
 local function get_table_keys(leader, cmd, line)
     return {
         'Actions',
@@ -81,10 +95,33 @@ vim.api.nvim_create_user_command('MythicFateCheck', function(opts)
     print(output)
 end, {
     nargs = '?',
-    complete = function()
-        return {'Impossible', 'Nearly Impossible', 'Very Unlikely', 'Unlikely', '50/50',
-                'Likely', 'Very Likely', 'Nearly Certain', 'Certain'}
+    complete = get_odds_completion
+})
+
+-- MythicFateChart command
+vim.api.nvim_create_user_command('MythicFateChart', function(opts)
+    local fate = require('mythic.fate')
+    local odds = opts.fargs[1] or '50/50'
+
+    local result, err = fate.fate_chart(odds)
+    if not result then
+        vim.notify(err, vim.log.levels.ERROR)
+        return
     end
+
+    -- Format output
+    local output = result.exceptional and ('Exceptional ' .. result.answer) or result.answer
+    output = output .. string.format(' [d100=%d (%d,%d)]',
+        result.roll.percentile, result.roll.die1, result.roll.die2)
+
+    if result.random_event then
+        output = output .. ' ⚠ Random Event!'
+    end
+
+    print(output)
+end, {
+    nargs = '?',
+    complete = get_odds_completion
 })
 
 -- MythicSceneTest command
