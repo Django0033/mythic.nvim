@@ -12,6 +12,7 @@ require('mythic.tables.character-actions-combat')
 require('mythic.tables.character-actions-general')
 require('mythic.tables.character-appearance')
 require('mythic.tables.character-background')
+require('mythic.tables.character-conversations')
 
 TBLS = {
     Actions = {
@@ -61,5 +62,9 @@ TBLS = {
     CharacterBackground = {
         Character_background,
         Character_background,
+    },
+    CharacterConversations = {
+        Character_conversations,
+        Character_conversations,
     },
 }
