@@ -1,4 +1,4 @@
-math.randomseed(os.time())
+math.randomseed(os.time() + vim.fn.getpid())
 
 local function get_table_keys(leader, cmd, line)
     return {
@@ -33,3 +33,64 @@ vim.api.nvim_create_user_command(
         complete = get_table_keys
     }
 )
+
+-- MythicChaos command
+vim.api.nvim_create_user_command('MythicChaos', function(opts)
+    local state = require('mythic.state')
+    local arg = opts.fargs[1]
+
+    if not arg then
+        print('Chaos Factor: ' .. state.get_chaos_factor())
+    elseif arg == '+' then
+        state.adjust_chaos_factor(1)
+        print('Chaos Factor: ' .. state.get_chaos_factor())
+    elseif arg == '-' then
+        state.adjust_chaos_factor(-1)
+        print('Chaos Factor: ' .. state.get_chaos_factor())
+    else
+        local value = tonumber(arg)
+        if value then
+            state.set_chaos_factor(value)
+            print('Chaos Factor: ' .. state.get_chaos_factor())
+        else
+            vim.notify('Invalid argument. Use +, -, or a number.', vim.log.levels.ERROR)
+        end
+    end
+end, { nargs = '?' })
+
+-- MythicFateCheck command
+vim.api.nvim_create_user_command('MythicFateCheck', function(opts)
+    local fate = require('mythic.fate')
+    local odds = opts.fargs[1] or '50/50'
+
+    local result, err = fate.fate_check(odds)
+    if not result then
+        vim.notify(err, vim.log.levels.ERROR)
+        return
+    end
+
+    -- Format output
+    local output = result.exceptional and ('Exceptional ' .. result.answer) or result.answer
+    output = output .. string.format(' [%d+%d%+d=%d]',
+        result.roll.die1, result.roll.die2, result.roll.modifier, result.roll.final)
+
+    if result.random_event then
+        output = output .. ' ⚠ Random Event!'
+    end
+
+    print(output)
+end, {
+    nargs = '?',
+    complete = function()
+        return {'Impossible', 'Nearly Impossible', 'Very Unlikely', 'Unlikely', '50/50',
+                'Likely', 'Very Likely', 'Nearly Certain', 'Certain'}
+    end
+})
+
+-- MythicSceneTest command
+vim.api.nvim_create_user_command('MythicSceneTest', function()
+    local scene = require('mythic.scene')
+    local result = scene.test_scene()
+
+    print(string.format('%s [%d vs CF %d]', result.result, result.roll, result.chaos_factor))
+end, { nargs = 0 })
