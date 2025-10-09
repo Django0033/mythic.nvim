@@ -21,6 +21,7 @@ local function get_table_keys(leader, cmd, line)
         'CharacterPersonality',
         'CharacterSkills',
         'CharacterTraitsFlaws',
+        'CityDescriptors',
     }
 end
 

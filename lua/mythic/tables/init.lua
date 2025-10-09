@@ -19,6 +19,7 @@ require('mythic.tables.character-motivations')
 require('mythic.tables.character-personality')
 require('mythic.tables.character-skills')
 require('mythic.tables.character-traits-flaws')
+require('mythic.tables.city-descriptors')
 
 TBLS = {
     Actions = {
@@ -96,5 +97,9 @@ TBLS = {
     CharacterTraitsFlaws = {
         Character_traits_flaws,
         Character_traits_flaws,
+    },
+    CityDescriptors = {
+        City_descriptors,
+        City_descriptors,
     },
 }
