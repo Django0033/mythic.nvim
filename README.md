@@ -1,7 +1,7 @@
 # mythic.nvim
 A small plugin to use Mythic GME 2 inside Neovim. This plugin is meant to be used as a companion for the Mythic Game Master Emulator by Tana Pigeon. If you want to know more about the rules, I'm leaving a link down here so you can grab a copy of the book. 
 
-<https://www.drivethrurpg.com/en/product/422929/mythic-game-master-emulator-second-edition>
+[Mythic Game Master Emulator 2e](https://www.drivethrurpg.com/en/product/422929/mythic-game-master-emulator-second-edition)
 
 ## Installation
 
