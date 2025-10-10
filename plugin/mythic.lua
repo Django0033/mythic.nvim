@@ -48,6 +48,14 @@ vim.api.nvim_create_user_command(
     }
 )
 
+vim.api.nvim_create_user_command(
+    'MythicEventFocus',
+    require('mythic.random-event-focus').get_random_event_focus,
+    {
+        nargs = 0,
+    }
+)
+
 -- MythicChaos command
 vim.api.nvim_create_user_command('MythicChaos', function(opts)
     local state = require('mythic.state')
