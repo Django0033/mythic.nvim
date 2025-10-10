@@ -3,6 +3,15 @@ A small plugin to use Mythic GME 2 inside Neovim. This plugin is meant to be use
 
 <https://www.drivethrurpg.com/en/product/422929/mythic-game-master-emulator-second-edition>
 
+## Installation
+
+### Using Lazy
+
+| Branch | Code snippet                 |
+|--------|:----------------------------:|
+| Main   | { 'Django0033/mythic.nvim' } |
+
+
 ## Commands
 - `MythicTables <table_name>`: Prints 2 elements from an specific table.
 
@@ -14,8 +23,14 @@ an argument to set the Chaos Factor to that number.
 Prints a dice roll result adding the Chaos Factor modifier and a yes/no (or
 exceptional yes/no) result. It also checks if there is a Random Event.
 
+- `MythicFateChart`: A 1D100 percentile resolution system as an alternative to
+  the Fate Check (2D10 system).
+
 - `MythicSceneTest`: Rolls 1D10 and compares the result to current Chaos 
 Factor to check if the scene will be as expected, altered or interrupted.
+
+- `MythicEventFocus`: Rolls 1D100 and prints a result from the Random Event
+  Focus table.
 
 >>Special thanks to John Stephens for the `MythicChaos`, `MythicFateCheck`, and
 >>`MythicSceneTest` commands. I really appreciate the help.
