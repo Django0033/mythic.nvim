@@ -38,6 +38,7 @@ local function get_table_keys(leader, cmd, line)
         'CityDescriptors',
         'CivilizationDescriptors',
         'CreatureAbilities',
+        'CreatureDescriptors',
     }
 end
 
