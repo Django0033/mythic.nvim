@@ -21,6 +21,7 @@ require('mythic.tables.character-skills')
 require('mythic.tables.character-traits-flaws')
 require('mythic.tables.city-descriptors')
 require('mythic.tables.civilization-descriptors')
+require('mythic.tables.creature-abilities')
 
 TBLS = {
     Actions = {
@@ -106,5 +107,9 @@ TBLS = {
     CivilizationDescriptors = {
         Civilization_descriptors,
         Civilization_descriptors,
+    },
+    CreatureAbilities = {
+        Creature_abilities,
+        Creature_abilities,
     },
 }
