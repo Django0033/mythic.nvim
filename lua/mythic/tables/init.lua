@@ -23,6 +23,9 @@ require('mythic.tables.city-descriptors')
 require('mythic.tables.civilization-descriptors')
 require('mythic.tables.creature-abilities')
 require('mythic.tables.creature-descriptors')
+require('mythic.tables.cryptic-message')
+require('mythic.tables.curses')
+require('mythic.tables.domicile-descriptors')
 
 TBLS = {
     Actions = {
@@ -116,5 +119,17 @@ TBLS = {
     CreatureDescriptors = {
         Creature_descriptors,
         Creature_descriptors,
+    },
+    CrypticMessage = {
+        Cryptic_message,
+        Cryptic_message,
+    },
+    Curses = {
+        Curse,
+        Curse,
+    },
+    DomicileDescriptors = {
+        Domicile_descriptors,
+        Domicile_descriptors,
     },
 }

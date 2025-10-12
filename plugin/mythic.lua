@@ -39,6 +39,9 @@ local function get_table_keys(leader, cmd, line)
         'CivilizationDescriptors',
         'CreatureAbilities',
         'CreatureDescriptors',
+        'CrypticMessage',
+        'Curses',
+        'DomicileDescriptors',
     }
 end
 
