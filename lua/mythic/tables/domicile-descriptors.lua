@@ -1,4 +1,4 @@
-Domicile_descriptors = {
+DomicileDescriptors = {
     'Abandoned',
     'Activity',
     'Animal',

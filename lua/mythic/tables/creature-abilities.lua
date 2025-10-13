@@ -1,4 +1,4 @@
-Creature_abilities = {
+CreatureAbilities = {
     'Ambush',
     'Animate',
     'Armor',

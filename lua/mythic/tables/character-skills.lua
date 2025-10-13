@@ -1,4 +1,4 @@
-Character_skills = {
+CharacterSkills = {
     'Activity',
     'Adversity',
     'Agility',
@@ -100,3 +100,5 @@ Character_skills = {
     'Weather',
     'Wounds',
 }
+
+return Character_skills

@@ -1,4 +1,4 @@
-Character_actions_combat = {
+CharacterActionsCombat = {
     'Abandon',
     'Abuse',
     'Aggressive',

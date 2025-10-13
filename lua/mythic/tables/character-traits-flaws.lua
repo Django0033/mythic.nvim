@@ -1,4 +1,4 @@
-Character_traits_flaws = {
+CharacterTraitsFlaws = {
     'Academic',
     'Adversity',
     'Animal',

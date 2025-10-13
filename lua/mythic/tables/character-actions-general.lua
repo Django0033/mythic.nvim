@@ -1,4 +1,4 @@
-Character_actions_general = {
+CharacterActionsGeneral = {
     'Abandon',
     'Aggressive',
     'Amusing',

@@ -1,4 +1,4 @@
-Character_personality = {
+CharacterPersonality = {
     'Active',
     'Adventurous',
     'Aggressive',

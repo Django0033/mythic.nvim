@@ -1,4 +1,4 @@
-Character = {
+Characters = {
     'Accompanied',
     'Active',
     'Aggressive',

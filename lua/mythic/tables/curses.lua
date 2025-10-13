@@ -1,4 +1,4 @@
-Curse = {
+Curses = {
     'Abandon',
     'Age',
     'Attract',

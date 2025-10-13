@@ -1,4 +1,4 @@
-Character_descriptors = {
+CharacterDescriptors = {
     'Abnormal',
     'Active',
     'Adventurous',

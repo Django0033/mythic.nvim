@@ -1,4 +1,4 @@
-Character_conversations = {
+CharacterConversations = {
     'Abuse',
     'Advice',
     'Aggressive',

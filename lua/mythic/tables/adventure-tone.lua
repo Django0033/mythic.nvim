@@ -1,4 +1,4 @@
-Adventure_tone = {
+AdventureTone = {
 'Action',
 'Activity',
 'Adventurous',

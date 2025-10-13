@@ -1,4 +1,4 @@
-Character_appearance = {
+CharacterAppearance = {
     'Abnormal',
     'Armed',
     'Aromatic',

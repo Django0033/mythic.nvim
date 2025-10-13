@@ -1,4 +1,4 @@
-Character_identity = {
+CharacterIdentity = {
     'Abandoned',
     'Administrator',
     'Adventurous',

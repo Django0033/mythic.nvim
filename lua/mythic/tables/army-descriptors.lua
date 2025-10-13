@@ -1,4 +1,4 @@
-Army_descriptors = {
+ArmyDescriptors = {
     'Active',
     'Aggressive',
     'Allies',

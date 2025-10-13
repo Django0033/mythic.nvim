@@ -1,4 +1,4 @@
-Civilization_descriptors = {
+CivilizationDescriptors = {
     'Active',
     'Advanced',
     'Adventurous',

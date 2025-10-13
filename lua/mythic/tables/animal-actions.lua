@@ -1,4 +1,4 @@
-Animal_actions = {
+AnimalActions = {
     'Abandon',
     'Abnormal',
     'Aggressive',

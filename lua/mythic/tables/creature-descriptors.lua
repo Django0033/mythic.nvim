@@ -1,4 +1,4 @@
-Creature_descriptors = {
+CreatureDescriptors = {
     'Aggressive',
     'Agile',
     'Air',

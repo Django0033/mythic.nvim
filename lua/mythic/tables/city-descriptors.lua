@@ -1,4 +1,4 @@
-City_descriptors = {
+CityDescriptors = {
     'Activity',
     'Aggressive',
     'Aromatic',

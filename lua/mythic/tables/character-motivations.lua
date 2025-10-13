@@ -1,4 +1,4 @@
-Character_motivations = {
+CharacterMotivations = {
     'Adventure',
     'Adversity',
     'Ambition',

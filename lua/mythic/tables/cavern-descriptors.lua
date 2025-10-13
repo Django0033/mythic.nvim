@@ -1,4 +1,4 @@
-Cavern_descriptors = {
+CavernDescriptors = {
     'Activity',
     'Ancient',
     'Animals',

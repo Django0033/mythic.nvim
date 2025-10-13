@@ -1,4 +1,4 @@
-Cryptic_message = {
+CrypticMessage = {
     "Abandoned",
     "Activity",
     "Adventure",

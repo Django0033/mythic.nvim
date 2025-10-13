@@ -1,4 +1,4 @@
-Character_background = {
+CharacterBackground = {
     'Abandoned',
     'Abuse',
     'Academic',
