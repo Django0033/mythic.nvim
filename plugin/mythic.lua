@@ -42,6 +42,7 @@ local function get_table_keys(leader, cmd, line)
         'CrypticMessage',
         'Curses',
         'DomicileDescriptors',
+        'DungeonDescriptors',
     }
 end
 

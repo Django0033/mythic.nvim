@@ -27,6 +27,7 @@ require('mythic.tables.creature-descriptors')
 require('mythic.tables.cryptic-message')
 require('mythic.tables.curses')
 require('mythic.tables.domicile-descriptors')
+require('mythic.tables.dungeon-descriptors')
 
 M = {}
 
