@@ -100,5 +100,3 @@ CharacterSkills = {
     'Weather',
     'Wounds',
 }
-
-return Character_skills

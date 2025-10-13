@@ -43,6 +43,8 @@ local function get_table_keys(leader, cmd, line)
         'Curses',
         'DomicileDescriptors',
         'DungeonDescriptors',
+        'DungeonTraps',
+        'ForestDescriptors',
     }
 end
 
