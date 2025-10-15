@@ -45,6 +45,9 @@ require('mythic.tables.smells')
 require('mythic.tables.sounds')
 require('mythic.tables.spell-effects')
 require('mythic.tables.starship-descriptors')
+require('mythic.tables.terrain-descriptors')
+require('mythic.tables.undead-descriptors')
+require('mythic.tables.visions-dreams')
 
 M = {}
 

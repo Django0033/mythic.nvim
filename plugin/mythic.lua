@@ -60,6 +60,9 @@ local function get_table_keys(leader, cmd, line)
         'Sounds',
         'SpellEffects',
         'StarshipDescriptors',
+        'TerrainDescriptors',
+        'UndeadDescriptors',
+        'VisionsDreams',
     }
 end
 
