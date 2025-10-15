@@ -33,6 +33,10 @@ require('mythic.tables.forest-descriptors')
 require('mythic.tables.gods')
 require('mythic.tables.legends')
 require('mythic.tables.locations')
+require('mythic.tables.magic-item-descriptors')
+require('mythic.tables.mutation-descriptors')
+require('mythic.tables.names')
+require('mythic.tables.noble-house')
 
 M = {}
 

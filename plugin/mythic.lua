@@ -48,6 +48,10 @@ local function get_table_keys(leader, cmd, line)
         'Gods',
         'Legends',
         'Locations',
+        'MagicItemDescriptors',
+        'MutationDescriptors',
+        'Names',
+        'NobleHouse',
     }
 end
 
