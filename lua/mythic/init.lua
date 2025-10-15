@@ -30,6 +30,9 @@ require('mythic.tables.domicile-descriptors')
 require('mythic.tables.dungeon-descriptors')
 require('mythic.tables.dungeon-traps')
 require('mythic.tables.forest-descriptors')
+require('mythic.tables.gods')
+require('mythic.tables.legends')
+require('mythic.tables.locations')
 
 M = {}
 

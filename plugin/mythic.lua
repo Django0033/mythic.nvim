@@ -45,6 +45,9 @@ local function get_table_keys(leader, cmd, line)
         'DungeonDescriptors',
         'DungeonTraps',
         'ForestDescriptors',
+        'Gods',
+        'Legends',
+        'Locations',
     }
 end
 
