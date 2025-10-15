@@ -52,6 +52,8 @@ local function get_table_keys(leader, cmd, line)
         'MutationDescriptors',
         'Names',
         'NobleHouse',
+        'Objects',
+        'PlotTwists',
     }
 end
 

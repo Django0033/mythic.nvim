@@ -37,6 +37,8 @@ require('mythic.tables.magic-item-descriptors')
 require('mythic.tables.mutation-descriptors')
 require('mythic.tables.names')
 require('mythic.tables.noble-house')
+require('mythic.tables.objects')
+require('mythic.tables.plot-twists')
 
 M = {}
 
