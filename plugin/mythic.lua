@@ -57,6 +57,9 @@ local function get_table_keys(leader, cmd, line)
         'Powers',
         'ScavengingResults',
         'Smells',
+        'Sounds',
+        'SpellEffects',
+        'StarshipDescriptors',
     }
 end
 

@@ -42,6 +42,9 @@ require('mythic.tables.plot-twists')
 require('mythic.tables.powers')
 require('mythic.tables.scavenging-results')
 require('mythic.tables.smells')
+require('mythic.tables.sounds')
+require('mythic.tables.spell-effects')
+require('mythic.tables.starship-descriptors')
 
 M = {}
 
