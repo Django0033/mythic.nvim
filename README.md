@@ -32,6 +32,8 @@ Factor to check if the scene will be as expected, altered or interrupted.
 - `MythicEventFocus`: Rolls 1D100 and prints a result from the Random Event
   Focus table.
 
+- `MythicSceneAdjustment`: Rolls a D10 and prints a result from the Scene Adjustment table.
+
 >>Special thanks to John Stephens for the `MythicChaos`, `MythicFateCheck`, and
 >>`MythicSceneTest` commands. I really appreciate the help.
 
