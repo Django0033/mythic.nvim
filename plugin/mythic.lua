@@ -83,6 +83,14 @@ vim.api.nvim_create_user_command(
     }
 )
 
+vim.api.nvim_create_user_command(
+    'MythicSceneAdjustment',
+    require('mythic.scene-adjustment').get_scene_adjustment,
+    {
+        nargs = 0,
+    }
+)
+
 -- MythicChaos command
 vim.api.nvim_create_user_command('MythicChaos', function(opts)
     local state = require('mythic.state')
