@@ -54,6 +54,9 @@ local function get_table_keys(leader, cmd, line)
         'NobleHouse',
         'Objects',
         'PlotTwists',
+        'Powers',
+        'ScavengingResults',
+        'Smells',
     }
 end
 

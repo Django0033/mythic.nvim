@@ -39,6 +39,9 @@ require('mythic.tables.names')
 require('mythic.tables.noble-house')
 require('mythic.tables.objects')
 require('mythic.tables.plot-twists')
+require('mythic.tables.powers')
+require('mythic.tables.scavenging-results')
+require('mythic.tables.smells')
 
 M = {}
 
