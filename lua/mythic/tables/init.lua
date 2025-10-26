@@ -3,7 +3,7 @@ require('mythic.tables.action2')
 require('mythic.tables.descriptor1')
 require('mythic.tables.descriptor2')
 
-TBLS = {
+Mythic_tbls = {
     Actions = {
         Action1,
         Action2,

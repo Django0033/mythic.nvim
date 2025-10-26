@@ -76,7 +76,7 @@ end
 -- Prints 2 elements from tables
 function M.print_table_elements(opts)
     local tbls_key = opts.fargs[1] -- Sets tbls_key to the arg passed by the user
-    local tbl = TBLS[tbls_key] -- Sets tbl to the table in TBLS tbls_key
+    local tbl = Mythic_tbls[tbls_key] -- Sets tbl to the table in TBLS tbls_key
     local g_tbl = _G[opts.fargs[1]] -- _G is a table that lists global tables.
 
     if tbl then -- If tbl exists then
