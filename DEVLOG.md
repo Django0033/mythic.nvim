@@ -267,34 +267,42 @@ Displays results in a formatted floating window with:
 - Rounded border
 - Keyboard shortcuts:
   - `y`: Copy result to clipboard and close
+  - `<CR>` / `<Enter>`: Copy to clipboard, paste in buffer, and close
   - `q`: Close window
   - `Esc`: Close window
 - Copy to both `+` (system clipboard) and `"` (Vim default) registers
-- Confirmation notification on copy
+- Paste using Vim's native `p` command (cursor moves correctly)
+- Confirmation notification on copy/paste
 
 **Technical Notes:**
 ```lua
--- Keymap for copy functionality
-vim.keymap.set("n", "y", function()
-    local lines = vim.api.nvim_buf_get_lines(b, 0, -1, false)
-    local content_to_copy = ""
+-- Keymap for paste functionality (<CR> and <Enter>)
+vim.keymap.set("n", "<CR>", function()
+    if not user_buf or not vim.api.nvim_buf_is_valid(user_buf) then
+        vim.notify("No valid buffer to paste into", vim.log.levels.WARN)
+        M.close()
+        return
+    end
 
-    for _, line in ipairs(lines) do
-        if line ~= "" and not line:match("%[q%]") then
-            content_to_copy = content_to_copy .. line .. "\n"
+    local flines = vim.api.nvim_buf_get_lines(b, 0, -1, false)
+    local content = ""
+    for _, line in ipairs(flines) do
+        if line ~= "" and not line:match("%[y%]") and not line:match("%[CR%]") and not line:match("%[%]") then
+            content = content .. line .. "\n"
         end
     end
-    content_to_copy = content_to_copy:gsub("\n$", "")
+    content = content:gsub("\n$", "")
 
-    vim.fn.setreg("+", content_to_copy)
-    vim.fn.setreg('"', content_to_copy)
+    vim.fn.setreg("+", content)
 
-    vim.notify("Copied to clipboard!", vim.log.levels.INFO)
+    vim.fn.win_execute(user_win, 'normal! "+p')
+    
+    vim.notify("Pasted!", vim.log.levels.INFO)
     M.close()
 end, { buffer = b, nowait = true })
 ```
 
-**File:** `lua/mythic/buffer.lua` (105 lines)
+**File:** `lua/mythic/buffer.lua` (158 lines)
 
 ---
 

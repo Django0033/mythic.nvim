@@ -56,6 +56,7 @@ All commands display results in two ways:
 | Key | Action |
 |-----|--------|
 | `y` | Copy result to clipboard and close |
+| `<CR>` / `<Enter>` | Copy to clipboard, paste in buffer, and close |
 | `q` | Close window |
 | `Esc` | Close window |
 
@@ -63,7 +64,12 @@ When you press `y`, the result is copied to:
 - The system clipboard (`+` register)
 - Vim's default register (`"` register)
 
-A notification "Copied to clipboard!" will appear.
+When you press `<CR>` or `<Enter>`, the result is:
+- Copied to clipboard (system + default register)
+- Pasted at cursor position in your buffer
+- Window closes automatically
+
+A notification will appear confirming the action.
 
 ### Visual Example
 
@@ -73,7 +79,7 @@ A notification "Copied to clipboard!" will appear.
 │  Exceptional Yes [8+2+2=12]                   │
 │  ⚠ Random Event!                             │
 │                                                │
-│  [y] Copy to clipboard [q] Close            │
+│  [y] Copy [<CR>] Paste [q] Close          │
 └────────────────────────────────────────────────┘
 ```
 
