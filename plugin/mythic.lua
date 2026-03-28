@@ -136,6 +136,7 @@ vim.api.nvim_create_user_command('MythicFateCheck', function(opts)
     end
 
     print(output)
+    require('mythic.buffer').show(output)
 end, {
     nargs = '?',
     complete = get_odds_completion
@@ -162,6 +163,7 @@ vim.api.nvim_create_user_command('MythicFateChart', function(opts)
     end
 
     print(output)
+    require('mythic.buffer').show(output)
 end, {
     nargs = '?',
     complete = get_odds_completion
@@ -172,5 +174,7 @@ vim.api.nvim_create_user_command('MythicSceneTest', function()
     local scene = require('mythic.scene')
     local result = scene.test_scene()
 
-    print(string.format('%s [%d vs CF %d]', result.result, result.roll, result.chaos_factor))
+    local output = string.format('%s [%d vs CF %d]', result.result, result.roll, result.chaos_factor)
+    print(output)
+    require('mythic.buffer').show(output)
 end, { nargs = 0 })

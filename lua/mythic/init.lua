@@ -49,6 +49,8 @@ require('mythic.tables.terrain-descriptors')
 require('mythic.tables.undead-descriptors')
 require('mythic.tables.visions-dreams')
 
+require('mythic.buffer')
+
 M = {}
 
 local function get_random_number(top_number)
