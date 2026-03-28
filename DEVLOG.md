@@ -254,43 +254,47 @@ end
 - **Depends on**: Feature 5 (History)
 - **Complexity**: Medium
 - **Estimated Lines**: 80-120
+- **Status**: ✅ IMPLEMENTED
 
 Displays results in a formatted floating window with:
 - Current Chaos Factor
 - Recent rolls
 - Generated content history
 
+**Implemented Features:**
+- Floating window centered on screen
+- Title: "Mythic GME"
+- Rounded border
+- Keyboard shortcuts:
+  - `y`: Copy result to clipboard and close
+  - `q`: Close window
+  - `Esc`: Close window
+- Copy to both `+` (system clipboard) and `"` (Vim default) registers
+- Confirmation notification on copy
+
+**Technical Notes:**
 ```lua
-function M.show_buffer()
-    local buf = vim.api.nvim_create_buf(false, true)
-    local width = 60
-    local height = 20
+-- Keymap for copy functionality
+vim.keymap.set("n", "y", function()
+    local lines = vim.api.nvim_buf_get_lines(b, 0, -1, false)
+    local content_to_copy = ""
 
-    local lines = {
-        "=== MYTHIC SESSION ===",
-        "",
-        "Chaos Factor: " .. state.get_chaos_factor(),
-        "",
-        "=== ROLL HISTORY ===",
-    }
-
-    for _, roll in ipairs(History.rolls) do
-        table.insert(lines, format_roll(roll))
+    for _, line in ipairs(lines) do
+        if line ~= "" and not line:match("%[q%]") then
+            content_to_copy = content_to_copy .. line .. "\n"
+        end
     end
+    content_to_copy = content_to_copy:gsub("\n$", "")
 
-    vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+    vim.fn.setreg("+", content_to_copy)
+    vim.fn.setreg('"', content_to_copy)
 
-    local opts = {
-        relative = 'editor',
-        width = width,
-        height = height,
-        row = 1,
-        col = 1,
-    }
-
-    vim.api.nvim_open_win(buf, true, opts)
-end
+    vim.notify("Copied to clipboard!", vim.log.levels.INFO)
+    M.close()
+end, { buffer = b, nowait = true })
 ```
+
+**File:** `lua/mythic/buffer.lua` (105 lines)
 
 ---
 
@@ -468,9 +472,10 @@ Full interactive UI with:
 1. **Start with Features 1-4**: These build the core generation system
 2. **Add Feature 5**: History is useful immediately
 3. **Feature 11 (Help)**: Can be done in parallel, low dependency
-4. **Features 6-8**: Add UI and story tracking
-5. **Features 9-10**: Add persistence
-6. **Feature 12**: Final polish
+4. **Feature 6 (Buffer)**: ✅ COMPLETED - Floating window with copy
+5. **Features 7-8**: Add UI and story tracking
+6. **Features 9-10**: Add persistence
+7. **Feature 12**: Final polish
 
 ---
 

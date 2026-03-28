@@ -51,14 +51,31 @@ All commands display results in two ways:
 1. **Message area** - Print output at the bottom of Neovim
 2. **Floating window** - Results also appear in a centered floating window
 
-The floating window shows:
-- The command result
-- A hint to close it
+### Keyboard Shortcuts
 
-### Closing the Window
+| Key | Action |
+|-----|--------|
+| `y` | Copy result to clipboard and close |
+| `q` | Close window |
+| `Esc` | Close window |
 
-- Press `q` to close
-- Press `Esc` to close
+When you press `y`, the result is copied to:
+- The system clipboard (`+` register)
+- Vim's default register (`"` register)
+
+A notification "Copied to clipboard!" will appear.
+
+### Visual Example
+
+```
+┌────────────────── Mythic GME ──────────────────┐
+│                                                │
+│  Exceptional Yes [8+2+2=12]                   │
+│  ⚠ Random Event!                             │
+│                                                │
+│  [y] Copy to clipboard [q] Close            │
+└────────────────────────────────────────────────┘
+```
 
 ## Commands
 
