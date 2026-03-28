@@ -10,6 +10,8 @@ local config = {
 local buf = nil
 local win = nil
 local is_open = false
+local user_buf = nil
+local user_win = nil
 
 local function create_buffer()
 	if buf and vim.api.nvim_buf_is_valid(buf) then
@@ -38,9 +40,12 @@ end
 function M.show(content)
 	local b = create_buffer()
 
+	user_buf = vim.api.nvim_get_current_buf()
+	user_win = vim.api.nvim_get_current_win()
+
 	local lines = vim.split(content, "\n", { plain = true })
 	table.insert(lines, "")
-	table.insert(lines, "[y] Copy to clipboard [q] Close")
+	table.insert(lines, "[y] Copy [CR] Paste [q] Close")
 
 	vim.api.nvim_buf_set_lines(b, 0, -1, false, lines)
 
@@ -82,6 +87,54 @@ function M.show(content)
 		vim.fn.setreg('"', content_to_copy)
 
 		vim.notify("Copied to clipboard!", vim.log.levels.INFO)
+		M.close()
+	end, { buffer = b, nowait = true })
+
+	vim.keymap.set("n", "<CR>", function()
+		if not user_buf or not vim.api.nvim_buf_is_valid(user_buf) then
+			vim.notify("No valid buffer to paste into", vim.log.levels.WARN)
+			M.close()
+			return
+		end
+
+		local flines = vim.api.nvim_buf_get_lines(b, 0, -1, false)
+		local content = ""
+		for _, line in ipairs(flines) do
+			if line ~= "" and not line:match("%[y%]") and not line:match("%[CR%]") and not line:match("%[%]") then
+				content = content .. line .. "\n"
+			end
+		end
+		content = content:gsub("\n$", "")
+
+		vim.fn.setreg("+", content)
+
+		vim.fn.win_execute(user_win, 'normal! "+p')
+		
+		vim.notify("Pasted!", vim.log.levels.INFO)
+		M.close()
+	end, { buffer = b, nowait = true })
+
+	vim.keymap.set("n", "<Enter>", function()
+		if not user_buf or not vim.api.nvim_buf_is_valid(user_buf) then
+			vim.notify("No valid buffer to paste into", vim.log.levels.WARN)
+			M.close()
+			return
+		end
+
+		local flines = vim.api.nvim_buf_get_lines(b, 0, -1, false)
+		local content = ""
+		for _, line in ipairs(flines) do
+			if line ~= "" and not line:match("%[y%]") and not line:match("%[CR%]") and not line:match("%[%]") then
+				content = content .. line .. "\n"
+			end
+		end
+		content = content:gsub("\n$", "")
+
+		vim.fn.setreg("+", content)
+
+		vim.fn.win_execute(user_win, 'normal! "+p')
+		
+		vim.notify("Pasted!", vim.log.levels.INFO)
 		M.close()
 	end, { buffer = b, nowait = true })
 end
