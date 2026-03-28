@@ -40,7 +40,7 @@ function M.show(content)
 
 	local lines = vim.split(content, "\n", { plain = true })
 	table.insert(lines, "")
-	table.insert(lines, "[q] Close")
+	table.insert(lines, "[y] Copy to clipboard [q] Close")
 
 	vim.api.nvim_buf_set_lines(b, 0, -1, false, lines)
 
@@ -64,6 +64,24 @@ function M.show(content)
 	end, { buffer = b, nowait = true })
 
 	vim.keymap.set("n", "<Esc>", function()
+		M.close()
+	end, { buffer = b, nowait = true })
+
+	vim.keymap.set("n", "y", function()
+		local lines = vim.api.nvim_buf_get_lines(b, 0, -1, false)
+		local content_to_copy = ""
+
+		for _, line in ipairs(lines) do
+			if line ~= "" and not line:match("%[q%]") then
+				content_to_copy = content_to_copy .. line .. "\n"
+			end
+		end
+		content_to_copy = content_to_copy:gsub("\n$", "")
+
+		vim.fn.setreg("+", content_to_copy)
+		vim.fn.setreg('"', content_to_copy)
+
+		vim.notify("Copied to clipboard!", vim.log.levels.INFO)
 		M.close()
 	end, { buffer = b, nowait = true })
 end
