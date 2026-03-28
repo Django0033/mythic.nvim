@@ -44,6 +44,22 @@ Plug 'Django0033/mythic.nvim'
 3. Run `:MythicChaos 5` to set initial Chaos Factor
 4. Start generating!
 
+## Output Display
+
+All commands display results in two ways:
+
+1. **Message area** - Print output at the bottom of Neovim
+2. **Floating window** - Results also appear in a centered floating window
+
+The floating window shows:
+- The command result
+- A hint to close it
+
+### Closing the Window
+
+- Press `q` to close
+- Press `Esc` to close
+
 ## Commands
 
 | Command | Description |
@@ -179,6 +195,22 @@ Output example: "Expected Scene [7 vs CF 5]"
 ```
 
 Output example: "Dice roll: 35 - NPC Action"
+
+### Floating Window
+
+When you run any command, a floating window appears with the result:
+
+```
+┌────────────────── Mythic GME ──────────────────┐
+│                                                │
+│  Exceptional Yes [8+2+2=12]                   │
+│  ⚠ Random Event!                             │
+│                                                │
+│  [q] Close                                   │
+└────────────────────────────────────────────────┘
+```
+
+Press `q` or `Esc` to close the window.
 
 ## License
 
