@@ -15,7 +15,7 @@ local user_win = nil
 
 local function create_buffer()
 	if buf and vim.api.nvim_buf_is_valid(buf) then
-		return buf
+		vim.api.nvim_buf_delete(buf, { force = true })
 	end
 	buf = vim.api.nvim_create_buf(false, true)
 	return buf
@@ -109,7 +109,7 @@ function M.show(content)
 		vim.fn.setreg("+", content)
 
 		vim.fn.win_execute(user_win, 'normal! "+p')
-		
+
 		vim.notify("Pasted!", vim.log.levels.INFO)
 		M.close()
 	end, { buffer = b, nowait = true })
@@ -133,7 +133,7 @@ function M.show(content)
 		vim.fn.setreg("+", content)
 
 		vim.fn.win_execute(user_win, 'normal! "+p')
-		
+
 		vim.notify("Pasted!", vim.log.levels.INFO)
 		M.close()
 	end, { buffer = b, nowait = true })
