@@ -87,7 +87,7 @@ A notification will appear confirming the action.
 
 | Command | Description |
 |---------|-------------|
-| `:MythicTables <table>` | Prints 2 random elements from a table |
+| `:MythicTables <table>` | Prints 2 random elements with index (e.g., Locations -> 15 Abandoned / 42 Dangerous) |
 | `:MythicChaos` | Shows current Chaos Factor |
 | `:MythicChaos +` | Increases Chaos Factor by 1 |
 | `:MythicChaos -` | Decreases Chaos Factor by 1 |

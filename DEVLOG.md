@@ -39,7 +39,7 @@ mythic.nvim/
 
 | Command | Description |
 |---------|-------------|
-| `MythicTables <table>` | Prints 2 elements from a specific table |
+| `MythicTables <table>` | Prints 2 elements from a table with index (e.g., Locations -> 15 Abandoned / 42 Dangerous) |
 | `MythicChaos [+/-/n]` | Display/adjust Chaos Factor |
 | `MythicFateCheck [odds]` | 2d10 roll + modifiers vs odds |
 | `MythicFateChart [odds]` | 1d100 percentile alternative system |
@@ -270,9 +270,10 @@ Displays results in a formatted floating window with:
   - `<CR>` / `<Enter>`: Copy to clipboard, paste in buffer, and close
   - `q`: Close window
   - `Esc`: Close window
-- Copy to both `+` (system clipboard) and `"` (Vim default) registers
+  - Copy to both `+` (system clipboard) and `"` (Vim default) registers
 - Paste using Vim's native `p` command (cursor moves correctly)
 - Confirmation notification on copy/paste
+- Bug fix: Buffer deletion and recreation to prevent "not modifiable" error on reuse
 
 **Technical Notes:**
 ```lua
