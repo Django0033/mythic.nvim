@@ -90,7 +90,7 @@ function M.show(content)
 		M.close()
 	end, { buffer = b, nowait = true })
 
-	vim.keymap.set("n", "<CR>", function()
+	local function paste_content()
 		if not user_buf or not vim.api.nvim_buf_is_valid(user_buf) then
 			vim.notify("No valid buffer to paste into", vim.log.levels.WARN)
 			M.close()
@@ -100,7 +100,7 @@ function M.show(content)
 		local flines = vim.api.nvim_buf_get_lines(b, 0, -1, false)
 		local content = ""
 		for _, line in ipairs(flines) do
-			if line ~= "" and not line:match("%[y%]") and not line:match("%[CR%]") and not line:match("%[%]") then
+			if line ~= "" and not line:match("%[y%]") and not line:match("%[CR%]") then
 				content = content .. line .. "\n"
 			end
 		end
@@ -112,31 +112,10 @@ function M.show(content)
 
 		vim.notify("Pasted!", vim.log.levels.INFO)
 		M.close()
-	end, { buffer = b, nowait = true })
+	end
 
-	vim.keymap.set("n", "<Enter>", function()
-		if not user_buf or not vim.api.nvim_buf_is_valid(user_buf) then
-			vim.notify("No valid buffer to paste into", vim.log.levels.WARN)
-			M.close()
-			return
-		end
-
-		local flines = vim.api.nvim_buf_get_lines(b, 0, -1, false)
-		local content = ""
-		for _, line in ipairs(flines) do
-			if line ~= "" and not line:match("%[y%]") and not line:match("%[CR%]") and not line:match("%[%]") then
-				content = content .. line .. "\n"
-			end
-		end
-		content = content:gsub("\n$", "")
-
-		vim.fn.setreg("+", content)
-
-		vim.fn.win_execute(user_win, 'normal! "+p')
-
-		vim.notify("Pasted!", vim.log.levels.INFO)
-		M.close()
-	end, { buffer = b, nowait = true })
+	vim.keymap.set("n", "<CR>", paste_content, { buffer = b, nowait = true })
+	vim.keymap.set("n", "<Enter>", paste_content, { buffer = b, nowait = true })
 end
 
 function M.close()
@@ -145,14 +124,6 @@ function M.close()
 		win = nil
 	end
 	is_open = false
-end
-
-function M.toggle()
-	if is_open then
-		M.close()
-	else
-		vim.notify("No content to display. Run a Mythic command first.", vim.log.levels.WARN)
-	end
 end
 
 return M

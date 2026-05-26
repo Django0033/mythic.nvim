@@ -23,10 +23,7 @@ function M.get_scene_adjustment()
 
 	for _, limit in ipairs(limits) do
 		if roll <= limit then
-			local output = "Dice roll: " .. roll .. " - " .. SCENE_ADJUSTMENT_TABLE[limit]
-			print(output)
-			require("mythic.buffer").show(output)
-			return
+			return string.format("Dice roll: %d - %s", roll, SCENE_ADJUSTMENT_TABLE[limit])
 		end
 	end
 

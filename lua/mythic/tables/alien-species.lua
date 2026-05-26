@@ -1,4 +1,4 @@
-AlienEspecies = {
+AlienSpecies = {
     'Advanced',
     'Aggressive',
     'Agile',

@@ -14,56 +14,8 @@ local function get_odds_completion()
 	}
 end
 
-local function get_table_keys(leader, cmd, line)
-	return {
-		"Actions",
-		"Descriptors",
-		"AdventureTone",
-		"AlienEspecies",
-		"AnimalActions",
-		"ArmyDescriptors",
-		"CavernDescriptors",
-		"Characters",
-		"CharacterActionsCombat",
-		"CharacterActionsGeneral",
-		"CharacterAppearance",
-		"CharacterBackground",
-		"CharacterConversations",
-		"CharacterDescriptors",
-		"CharacterIdentity",
-		"CharacterMotivations",
-		"CharacterPersonality",
-		"CharacterSkills",
-		"CharacterTraitsFlaws",
-		"CityDescriptors",
-		"CivilizationDescriptors",
-		"CreatureAbilities",
-		"CreatureDescriptors",
-		"CrypticMessage",
-		"Curses",
-		"DomicileDescriptors",
-		"DungeonDescriptors",
-		"DungeonTraps",
-		"ForestDescriptors",
-		"Gods",
-		"Legends",
-		"Locations",
-		"MagicItemDescriptors",
-		"MutationDescriptors",
-		"Names",
-		"NobleHouse",
-		"Objects",
-		"PlotTwists",
-		"Powers",
-		"ScavengingResults",
-		"Smells",
-		"Sounds",
-		"SpellEffects",
-		"StarshipDescriptors",
-		"TerrainDescriptors",
-		"UndeadDescriptors",
-		"VisionsDreams",
-	}
+local function get_table_keys(_leader, _cmd, _line)
+	return require("mythic.tables.registry")
 end
 
 vim.api.nvim_create_user_command("MythicTables", function(opts)
@@ -75,11 +27,19 @@ end, {
 	complete = get_table_keys,
 })
 
-vim.api.nvim_create_user_command("MythicEventFocus", require("mythic.random-event-focus").get_random_event_focus, {
+vim.api.nvim_create_user_command("MythicEventFocus", function()
+	local result = require("mythic.random-event-focus").get_random_event_focus()
+	print(result)
+	require("mythic.buffer").show(result)
+end, {
 	nargs = 0,
 })
 
-vim.api.nvim_create_user_command("MythicSceneAdjustment", require("mythic.scene-adjustment").get_scene_adjustment, {
+vim.api.nvim_create_user_command("MythicSceneAdjustment", function()
+	local result = require("mythic.scene-adjustment").get_scene_adjustment()
+	print(result)
+	require("mythic.buffer").show(result)
+end, {
 	nargs = 0,
 })
 

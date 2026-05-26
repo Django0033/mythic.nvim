@@ -1,8 +1,4 @@
 require("mythic.tables")
-require("mythic.tables.action1")
-require("mythic.tables.action2")
-require("mythic.tables.descriptor1")
-require("mythic.tables.descriptor2")
 require("mythic.tables.adventure-tone")
 require("mythic.tables.alien-species")
 require("mythic.tables.animal-actions")
@@ -49,9 +45,7 @@ require("mythic.tables.terrain-descriptors")
 require("mythic.tables.undead-descriptors")
 require("mythic.tables.visions-dreams")
 
-require("mythic.buffer")
-
-M = {}
+local M = {}
 
 local function get_random_number(top_number)
 	local random_number = math.random(1, top_number)
@@ -60,7 +54,7 @@ local function get_random_number(top_number)
 end
 
 -- Gets a random element from a table
-local function get_random_elemnt(tbl)
+local function get_random_element(tbl)
 	-- Gets the table's size
 	local size = #tbl
 
@@ -84,11 +78,11 @@ function M.print_table_elements(opts)
 	local idx1, elem1, idx2, elem2
 
 	if tbl then -- If tbl exists then
-		idx1, elem1 = get_random_elemnt(tbl[1])
-		idx2, elem2 = get_random_elemnt(tbl[2])
+		idx1, elem1 = get_random_element(tbl[1])
+		idx2, elem2 = get_random_element(tbl[2])
 	else
-		idx1, elem1 = get_random_elemnt(g_tbl)
-		idx2, elem2 = get_random_elemnt(g_tbl)
+		idx1, elem1 = get_random_element(g_tbl)
+		idx2, elem2 = get_random_element(g_tbl)
 	end
 
 	local result = string.format("%s -> %d %s / %d %s", tbls_key, idx1, elem1, idx2, elem2)

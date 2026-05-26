@@ -31,10 +31,7 @@ function M.get_random_event_focus()
 
 	for _, limit in ipairs(limits) do
 		if roll <= limit then
-			local output = "Dice roll: " .. roll .. " - " .. RANDOM_EVENT_FOCUS[limit]
-			print(output)
-			require("mythic.buffer").show(output)
-			return
+			return string.format("Dice roll: %d - %s", roll, RANDOM_EVENT_FOCUS[limit])
 		end
 	end
 
